@@ -101,19 +101,18 @@
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
     </platform>
-     <engine name="android" spec="~7.0.0" />
+    <engine name="ios" spec="^4.5.5" />
     <engine name="browser" spec="~5.0.3" />
-    <engine name="ios" spec="~4.5.5" />
-    <plugin name="cordova-plugin-dialogs" spec="^2.0.1" />
-    <plugin name="cordova-plugin-inappbrowser" spec="^3.0.0" />
+    <plugin name="cordova-plugin-dialogs" spec="~1.3.3" />
+    <plugin name="cordova-plugin-file" spec="~4.3.3" />
+    <plugin name="cordova-plugin-inappbrowser" spec="~1.7.1" />
     <plugin name="cordova-plugin-statusbar" spec="^2.4.2" />
     <plugin name="cordova-plugin-whitelist" spec="^1.3.3" />
     <plugin name="phonegap-plugin-push" spec="^2.1.3">
+        <variable name="SENDER_ID" value="971122330221" />
         <variable name="FCM_VERSION" value="11.6.2" />
     </plugin>
     <plugin name="cordova-plugin-file" spec="^6.0.1" />
     <plugin name="cordova-plugin-screen-orientation" spec="^3.0.1" />
-    <platform name="android">
-    <resource-file src="google-services.json" target="app/google-services.json" />
-    </platform>
+    <engine name="android" spec="~7.0.0" />
 </widget>

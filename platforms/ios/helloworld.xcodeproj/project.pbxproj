@@ -56,6 +56,8 @@
 		25A038F47E074B2A8C956F82 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A11B08DFAB741DAB455BC69 /* AddressBook.framework */; };
 		DF570EC51DC6436B91E910AD /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 72D9F4603BCE492DA274EDC9 /* libsqlite3.0.tbd */; };
 		1A7F2EA64CDF4A18B8070FBF /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 532C7F85657947E1A8E06107 /* Security.framework */; };
+		B1069972C98E494199B190F6 /* CDVStatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 570E27EA824C419FA001790E /* CDVStatusBar.m */; };
+		3EC4C939DB0943EA990CBFD4 /* CDVOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = FA38861602364B12A223DE30 /* CDVOrientation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -161,6 +163,10 @@
 		7A11B08DFAB741DAB455BC69 /* AddressBook.framework */ = {isa = PBXFileReference; name = "AddressBook.framework"; path = "System/Library/Frameworks/AddressBook.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
 		72D9F4603BCE492DA274EDC9 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; name = "libsqlite3.0.tbd"; path = "usr/lib/libsqlite3.0.tbd"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = sourcecode.text-based-dylib-definition; explicitFileType = undefined; includeInIndex = 0; };
 		532C7F85657947E1A8E06107 /* Security.framework */ = {isa = PBXFileReference; name = "Security.framework"; path = "System/Library/Frameworks/Security.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		570E27EA824C419FA001790E /* CDVStatusBar.m */ = {isa = PBXFileReference; name = "CDVStatusBar.m"; path = "cordova-plugin-statusbar/CDVStatusBar.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		AF7568BF52DE47B0A67F313C /* CDVStatusBar.h */ = {isa = PBXFileReference; name = "CDVStatusBar.h"; path = "cordova-plugin-statusbar/CDVStatusBar.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		FA38861602364B12A223DE30 /* CDVOrientation.m */ = {isa = PBXFileReference; name = "CDVOrientation.m"; path = "cordova-plugin-screen-orientation/CDVOrientation.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		A6831E4A469D40CFAF7C24F0 /* CDVOrientation.h */ = {isa = PBXFileReference; name = "CDVOrientation.h"; path = "cordova-plugin-screen-orientation/CDVOrientation.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -350,6 +356,10 @@
 				145C8F85C0AB4CF586955FAA /* FCMPlugin.h */,
 				7B4A935D566A450D939E2827 /* AppDelegate+FCMPlugin.h */,
 				350EE370C93E4401BDE8226F /* Firebase.h */,
+				570E27EA824C419FA001790E /* CDVStatusBar.m */,
+				AF7568BF52DE47B0A67F313C /* CDVStatusBar.h */,
+				FA38861602364B12A223DE30 /* CDVOrientation.m */,
+				A6831E4A469D40CFAF7C24F0 /* CDVOrientation.h */,
 			);
 			name = Plugins;
 			path = helloworld/Plugins;
@@ -512,6 +522,8 @@
 				84870D9F5D864B9CA8E93331 /* PushPlugin.m in Sources */,
 				93777BF1384043B78380310F /* FCMPlugin.m in Sources */,
 				411F97C3F8B344DEB14944E1 /* AppDelegate+FCMPlugin.m in Sources */,
+				B1069972C98E494199B190F6 /* CDVStatusBar.m in Sources */,
+				3EC4C939DB0943EA990CBFD4 /* CDVOrientation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

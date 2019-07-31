@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "971122330221",
+    "firebase_url": "https://push-test-jav.firebaseio.com",
+    "project_id": "push-test-jav",
+    "storage_bucket": "push-test-jav.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:971122330221:android:2b6065e31659e7f6",
+        "android_client_info": {
+          "package_name": "com.phonegap.helloworld"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "971122330221-eiaksh73u34tkpmc37fel4tus1kf1in2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1GVNYaM3seWfL1k4AKy_ETyOeCVs9i2I"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,39 +1,37 @@
 {
   "project_info": {
-    "project_number": "971122330221",
-    "firebase_url": "https://push-test-jav.firebaseio.com",
-    "project_id": "push-test-jav",
-    "storage_bucket": "push-test-jav.appspot.com"
+    "project_number": "794960530988",
+    "firebase_url": "https://javivilchisapp.firebaseio.com",
+    "project_id": "javivilchisapp",
+    "storage_bucket": "javivilchisapp.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:971122330221:android:2b6065e31659e7f6",
+        "mobilesdk_app_id": "1:794960530988:android:500510e2db62713f",
         "android_client_info": {
-          "package_name": "com.phonegap.helloworld"
+          "package_name": "com.javivilchis.push"
         }
       },
       "oauth_client": [
         {
-          "client_id": "971122330221-eiaksh73u34tkpmc37fel4tus1kf1in2.apps.googleusercontent.com",
+          "client_id": "794960530988-v61reua9j29pdjtqv9p686ooc8unnia0.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyB1GVNYaM3seWfL1k4AKy_ETyOeCVs9i2I"
+          "current_key": "AIzaSyDoN0fRY1kL_0mtD8DOoMEbSG4nbZniKfI"
         }
       ],
       "services": {
-        "analytics_service": {
-          "status": 1
-        },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
-        },
-        "ads_service": {
-          "status": 2
+          "other_platform_oauth_client": [
+            {
+              "client_id": "794960530988-v61reua9j29pdjtqv9p686ooc8unnia0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

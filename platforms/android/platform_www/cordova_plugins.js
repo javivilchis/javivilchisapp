@@ -370,6 +370,28 @@ module.exports = [
     ]
   },
   {
+    "id": "es6-promise-plugin.Promise",
+    "file": "plugins/es6-promise-plugin/www/promise.js",
+    "pluginId": "es6-promise-plugin",
+    "runs": true
+  },
+  {
+    "id": "cordova-plugin-screen-orientation.screenorientation",
+    "file": "plugins/cordova-plugin-screen-orientation/www/screenorientation.js",
+    "pluginId": "cordova-plugin-screen-orientation",
+    "clobbers": [
+      "cordova.plugins.screenorientation"
+    ]
+  },
+  {
+    "id": "cordova-plugin-statusbar.statusbar",
+    "file": "plugins/cordova-plugin-statusbar/www/statusbar.js",
+    "pluginId": "cordova-plugin-statusbar",
+    "clobbers": [
+      "window.StatusBar"
+    ]
+  },
+  {
     "id": "cordova-plugin-vibration.notification",
     "file": "plugins/cordova-plugin-vibration/www/vibration.js",
     "pluginId": "cordova-plugin-vibration",
@@ -401,7 +423,11 @@ module.exports.metadata =
   "cordova-plugin-inappbrowser": "1.7.2",
   "cordova-plugin-media-capture": "1.4.3",
   "cordova-plugin-network-information": "1.3.4",
+  "es6-promise-plugin": "4.2.2",
+  "cordova-plugin-screen-orientation": "3.0.2",
+  "cordova-plugin-statusbar": "2.4.3",
   "cordova-plugin-vibration": "2.1.6",
+  "cordova-plugin-whitelist": "1.3.4",
   "cordova-support-google-services": "1.1.0",
   "phonegap-plugin-multidex": "1.0.0",
   "phonegap-plugin-push": "2.1.3"

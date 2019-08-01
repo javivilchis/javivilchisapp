@@ -41,7 +41,7 @@ var app = {
         console.log('calling push init');
         var push = PushNotification.init({
             "android": {
-                "senderID": "XXXXXXXX"
+                "senderID": "794960530988"
             },
             "browser": {},
             "ios": {
@@ -83,6 +83,9 @@ var app = {
                 data.title,           // title
                 'Ok'                  // buttonName
             );
+            push.finish(function(){
+                console.log("notification received successfully");
+            })
        });
     }
 };

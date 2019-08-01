@@ -1,3 +1,9 @@
+Node version: v10.15.0
+
+Cordova version: 8.1.1
+
+Config.xml file: 
+
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.javivilchis.push" version="1.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>JavivilChis Application</name>
@@ -9,7 +15,7 @@
     </author>
     <content src="index.html" />
     <preference name="phonegap-version" value="cli-8.0.0" />
-    <preference name="android-minSdkVersion" value="19" />
+    <preference name="android-minSdkVersion" value="16" />
     <preference name="DisallowOverscroll" value="true" />
     <preference name="StatusBarOverlaysWebView" value="true" />
     <preference name="StatusBarStyle" value="blacktranslucent" />
@@ -115,15 +121,34 @@
     <plugin name="cordova-plugin-inappbrowser" spec="~1.7.1" />
     <plugin name="cordova-plugin-network-information" spec="~1.3.3" />
     <plugin name="cordova-plugin-vibration" spec="~2.1.5" />
+    <plugin name="phonegap-plugin-push" spec="^2.1.3">
+        <variable name="SENDER_ID" value="971122330221" />
+        <variable name="FCM_VERSION" value="11.6.2" />
+    </plugin>
     <plugin name="cordova-plugin-fcm" spec="^2.1.2" />
     <plugin name="cordova-plugin-statusbar" spec="^2.4.2" />
     <plugin name="cordova-plugin-whitelist" spec="^1.3.3" />
     <plugin name="cordova-plugin-screen-orientation" spec="^3.0.1" />
-    <plugin name="phonegap-plugin-push" spec="git+https://github.com/Moghul/phonegap-plugin-push.git#android-notification-data-pass">
-        <variable name="ANDROID_SUPPORT_V13_VERSION" value="27.+" />
-        <variable name="SENDER_ID" value="794960530988" />
-        <variable name="FCM_VERSION" value="11.6.2" />
-    </plugin>
+    <engine name="ios" spec="^4.5.5" />
+    <engine name="android" spec="^7.1.1" />
     <engine name="browser" spec="~5.0.3" />
-    <engine name="android" spec="^7.1.4" />
 </widget>
+
+
+Plugins: 
+
+cordova-plugin-battery-status,cordova-plugin-camera,cordova-plugin-compat,cordova-plugin-device,cordova-plugin-dialogs,cordova-plugin-fcm,cordova-plugin-file,cordova-plugin-geolocation,cordova-plugin-globalization,cordova-plugin-inappbrowser,cordova-plugin-media-capture,cordova-plugin-network-information,cordova-plugin-screen-orientation,cordova-plugin-statusbar,cordova-plugin-vibration,cordova-plugin-whitelist,cordova-support-google-services,es6-promise-plugin,phonegap-plugin-multidex,phonegap-plugin-push
+
+Error retrieving Android platform information: 
+Android SDK is not set up properly. Make sure that the Android SDK 'tools' and 'platform-tools' directories are in the PATH variable. 
+
+Error: cmd: Command failed with exit code 1 Error output:
+'android' is not recognized as an internal or external command,
+operable program or batch file.
+
+
+
+Error retrieving iOS platform information: Error: cmd: Command failed with exit code 1 Error output:
+'xcodebuild' is not recognized as an internal or external command,
+operable program or batch file.
+

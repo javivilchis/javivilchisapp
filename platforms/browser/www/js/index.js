@@ -128,10 +128,7 @@ var app = {
             snapshot.forEach(device => {
                 console.log(device.id, '=>', device.data());
                 const {token} = device.data()
-                tokens.push(token)
-            });
-            console.log('~~~tokens', tokens);
-            fetch('https://fcm.googleapis.com/fcm/send', {
+                fetch('https://fcm.googleapis.com/fcm/send', {
                 'method': 'POST',
                 'headers': {
                     'Authorization': 'key=' + key,
@@ -139,7 +136,7 @@ var app = {
                 },
                 'body': JSON.stringify({
                     'notification': notification,
-                    'to': tokens.join(", "),
+                    'to': token,
                     "data": {
                         "title": "test",
                         "message": "Test message"
@@ -152,6 +149,10 @@ var app = {
                 }).catch(function(error) {
                 console.error(error);
                 })
+                for(i=0;i<100; i++){}
+            });
+            console.log('~~~tokens', tokens);
+            
             
         })        
     }

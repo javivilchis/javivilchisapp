@@ -41,7 +41,21 @@ var app = {
     },
     setupPush: function() {
         console.log('calling push init');
-        var push = PushNotification.init({
+        // PushNotification.createChannel(
+        //     () => {
+        //       console.log('success');
+        //     },
+        //     () => {
+        //       console.log('error');
+        //     },
+        //     {
+        //       id: 'test_channel',
+        //       description: 'My first test channel',
+        //       importance: 3,
+        //       vibration: true
+        //     }
+        //   );
+        var push = window.PushNotification.init({
             "android": {
                 "senderID": "794960530988"
             },
@@ -53,7 +67,7 @@ var app = {
             },
             "windows": {}
         });
-        console.log('after init');
+        console.log('after init 1');
 
         push.on('registration', function(data) {
             console.log('registration event: ' + data.registrationId);
@@ -98,12 +112,12 @@ var app = {
 
         push.on('notification', function(data) {
             console.log('notification event');
-            navigator.notification.alert(
-                data.message,         // message
-                null,                 // callback
-                data.title,           // title
-                'Ok'                  // buttonName
-            );
+            // navigator.notification.alert(
+            //     data.message,         // message
+            //     null,                 // callback
+            //     data.title,           // title
+            //     'Ok'                  // buttonName
+            // );
             push.finish(function(){
                 console.log("notification received successfully");
             })
@@ -114,7 +128,6 @@ var app = {
         var notification = {
             'title': 'Portugal vs. Denmark',
             'body': '5 to 1',
-            'icon': 'firebase-logo.png',
           };
 
         var devicesRef = db.collection('devices');
@@ -127,8 +140,12 @@ var app = {
             let tokens = []
             snapshot.forEach(device => {
                 console.log(device.id, '=>', device.data());
-                const {token} = device.data()
-                fetch('https://fcm.googleapis.com/fcm/send', {
+                const {token = ""} = device.data()
+                if (!token || token === "") return
+                tokens.push(token)
+            });    
+            
+            fetch('https://fcm.googleapis.com/fcm/send', {
                 'method': 'POST',
                 'headers': {
                     'Authorization': 'key=' + key,
@@ -136,23 +153,22 @@ var app = {
                 },
                 'body': JSON.stringify({
                     'notification': notification,
-                    'to': token,
+                    'registration_ids': tokens,                    
                     "data": {
-                        "title": "test",
-                        "message": "Test message"
-                    }
+                        "title": "Test Notification",
+                        "body": "This offer expires at 11:30 or whatever",
+                        // 'android_channel_id': 'test_channel',
+                        "notId": 10,
+                    },
+                    "priority": "high"
                 })
                 }).then(function(response) {
-                    response.json(data => {
+                    response && response.json(data => {
                         console.log('~~~data', data);
                     })
                 }).catch(function(error) {
-                console.error(error);
+                    console.error(error);
                 })
-                for(i=0;i<100; i++){}
-            });
-            console.log('~~~tokens', tokens);
-            
             
         })        
     }

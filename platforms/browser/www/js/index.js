@@ -16,6 +16,8 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+var key = 'AAAAuRdXDiw:APA91bFuynW6S1N32DCP-rUWBynPxj4PPjwzkW1U0mabYukSl3_rQRRDC2s4W7vFaZ9aVHQZbstuRlSXoO2c-nisoUmSuoyyNTUacSOaC09UyptPYplf2pBx9ftlp2MqXM2R4SgGZXz6'
+var to = ''
 var app = {
     // Application Constructor
     initialize: function() {
@@ -41,7 +43,7 @@ var app = {
         console.log('calling push init');
         var push = PushNotification.init({
             "android": {
-                "senderID": "XXXXXXXX"
+                "senderID": "794960530988"
             },
             "browser": {},
             "ios": {
@@ -63,6 +65,25 @@ var app = {
                 // Post registrationId to your app server as the value has changed
             }
 
+            var devicesRef = db.collection('devices');
+            let query = devicesRef.where('token', '==', data.registrationId).get()
+                .then(snapshot => {
+                    if (snapshot.empty) {
+                        console.log('No matching devices')
+                        devicesRef.add({
+                            token: data.registrationId
+                        })
+                        return
+                    } 
+
+                    snapshot.forEach(device => {
+                        console.log(device.id, '=>', device.data());
+                    });
+                })
+                .catch(err => {
+                    console.log('Error getting devices', err);
+                })           
+
             var parentElement = document.getElementById('registration');
             var listeningElement = parentElement.querySelector('.waiting');
             var receivedElement = parentElement.querySelector('.received');
@@ -83,6 +104,55 @@ var app = {
                 data.title,           // title
                 'Ok'                  // buttonName
             );
+            push.finish(function(){
+                console.log("notification received successfully");
+            })
        });
+    },
+
+    sendNotification: function() {
+        var notification = {
+            'title': 'Portugal vs. Denmark',
+            'body': '5 to 1',
+            'icon': 'firebase-logo.png',
+          };
+
+        var devicesRef = db.collection('devices');
+        devicesRef.get().then(snapshot => {
+
+            if (snapshot.empty) {
+                console.log('No matching devices')
+                return
+            } 
+            let tokens = []
+            snapshot.forEach(device => {
+                console.log(device.id, '=>', device.data());
+                const {token} = device.data()
+                tokens.push(token)
+            });
+            console.log('~~~tokens', tokens);
+            fetch('https://fcm.googleapis.com/fcm/send', {
+                'method': 'POST',
+                'headers': {
+                    'Authorization': 'key=' + key,
+                    'Content-Type': 'application/json'
+                },
+                'body': JSON.stringify({
+                    'notification': notification,
+                    'to': tokens.join(", "),
+                    "data": {
+                        "title": "test",
+                        "message": "Test message"
+                    }
+                })
+                }).then(function(response) {
+                    response.json(data => {
+                        console.log('~~~data', data);
+                    })
+                }).catch(function(error) {
+                console.error(error);
+                })
+            
+        })        
     }
 };

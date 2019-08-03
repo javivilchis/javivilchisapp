@@ -57,9 +57,10 @@ var app = {
         //   );
         var push = window.PushNotification.init({
             "android": {
-                "senderID": "794960530988"
+                // "senderID": "794960530988"
             },
-            "browser": {},
+            "browser": {
+            },
             "ios": {
                 "sound": true,
                 "vibration": true,
@@ -154,13 +155,19 @@ var app = {
                 'body': JSON.stringify({
                     'notification': notification,
                     'registration_ids': tokens,                    
+                    'registration_ids': tokens,                    
+                    "priority": "high",
+                    "content_available": false,
+                    "delay_while_idle": false,
+                    "time_to_live": 2419200,
+                    "dry_run": false,
                     "data": {
-                        "title": "Test Notification",
-                        "body": "This offer expires at 11:30 or whatever",
-                        // 'android_channel_id': 'test_channel',
-                        "notId": 10,
+                        "content-available": "1",
+                        "force-start": "1",
+                        "title": "hello",
+                        "message": "world",
+                        "icon": "pn_icon.png"
                     },
-                    "priority": "high"
                 })
                 }).then(function(response) {
                     response && response.json(data => {

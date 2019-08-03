@@ -68,7 +68,7 @@ var app = {
             },
             "windows": {}
         });
-        console.log('after init 1');
+        console.log('after init 2');
 
         push.on('registration', function(data) {
             console.log('registration event: ' + data.registrationId);
@@ -112,14 +112,15 @@ var app = {
         });
 
         push.on('notification', function(data) {
-            console.log('notification event');
-            // navigator.notification.alert(
-            //     data.message,         // message
-            //     null,                 // callback
-            //     data.title,           // title
-            //     'Ok'                  // buttonName
-            // );
+            console.log('notification event', data);
+            
             push.finish(function(){
+                navigator.notification.alert(
+                    data.message,         // message
+                    null,                 // callback
+                    data.title,           // title
+                    'Ok'                  // buttonName
+                );
                 console.log("notification received successfully");
             })
        });
@@ -153,8 +154,7 @@ var app = {
                     'Content-Type': 'application/json'
                 },
                 'body': JSON.stringify({
-                    'notification': notification,
-                    'registration_ids': tokens,                    
+                    'notification': notification,                    
                     'registration_ids': tokens,                    
                     "priority": "high",
                     "content_available": false,
